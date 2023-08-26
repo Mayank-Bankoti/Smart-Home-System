@@ -22,3 +22,13 @@
 #define D4_Pin GPIO_PIN_7
 #define GPIO_PORT GPIOB
 
+void delay(int delay)
+{
+	unsigned int i,j
+	for (i=0; i<delay; i++)
+	{
+		for (j=0; j<1500; j++);
+	}
+}
+
+
