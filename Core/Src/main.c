@@ -71,7 +71,7 @@ void lcd_put_cur(int row, int col);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+//	int password[] ;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -105,10 +105,9 @@ int main(void)
 //  {
     /* USER CODE END WHILE */
   lcd_put_cur(0,0);
-  lcd_send_string("FERGUSSON");
+  lcd_send_string("Enter Password");
   lcd_put_cur(1,0);
-  lcd_send_string("COLLEGE");
-//      lcd_data(',');
+  lcd_send_string("******");
     /* USER CODE BEGIN 3 */
 //  }
   /* USER CODE END 3 */

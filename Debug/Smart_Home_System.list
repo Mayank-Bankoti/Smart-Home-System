@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00001674  08000194  08000194  00010194  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000024  08001808  08001808  00011808  2**2
+  2 .rodata       00000028  08001808  08001808  00011808  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800182c  0800182c  0002000c  2**0
+  3 .ARM.extab    00000000  08001830  08001830  0002000c  2**0
                   CONTENTS
-  4 .ARM          00000008  0800182c  0800182c  0001182c  2**2
+  4 .ARM          00000008  08001830  08001830  00011830  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08001834  08001834  0002000c  2**0
+  5 .preinit_array 00000000  08001838  08001838  0002000c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08001834  08001834  00011834  2**2
+  6 .init_array   00000004  08001838  08001838  00011838  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08001838  08001838  00011838  2**2
+  7 .fini_array   00000004  0800183c  0800183c  0001183c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000000c  20000000  0800183c  00020000  2**2
+  8 .data         0000000c  20000000  08001840  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000020  2000000c  08001848  0002000c  2**2
+  9 .bss          00000020  2000000c  0800184c  0002000c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  2000002c  08001848  0002002c  2**0
+ 10 ._user_heap_stack 00000604  2000002c  0800184c  0002002c  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
@@ -664,18 +664,17 @@ int main(void)
  8000684:	2100      	movs	r1, #0
  8000686:	2000      	movs	r0, #0
  8000688:	f7ff ffa4 	bl	80005d4 <lcd_put_cur>
-  lcd_send_string("FERGUSSON");
+  lcd_send_string("Enter Password");
  800068c:	4806      	ldr	r0, [pc, #24]	; (80006a8 <main+0x38>)
  800068e:	f7ff ffd9 	bl	8000644 <lcd_send_string>
   lcd_put_cur(1,0);
  8000692:	2100      	movs	r1, #0
  8000694:	2001      	movs	r0, #1
  8000696:	f7ff ff9d 	bl	80005d4 <lcd_put_cur>
-  lcd_send_string("COLLEGE");
+  lcd_send_string("******");
  800069a:	4804      	ldr	r0, [pc, #16]	; (80006ac <main+0x3c>)
  800069c:	f7ff ffd2 	bl	8000644 <lcd_send_string>
  80006a0:	2300      	movs	r3, #0
-//      lcd_data(',');
     /* USER CODE BEGIN 3 */
 //  }
   /* USER CODE END 3 */
@@ -684,7 +683,7 @@ int main(void)
  80006a4:	bd80      	pop	{r7, pc}
  80006a6:	bf00      	nop
  80006a8:	08001808 	.word	0x08001808
- 80006ac:	08001814 	.word	0x08001814
+ 80006ac:	08001818 	.word	0x08001818
 
 080006b0 <SystemClock_Config>:
 /**
@@ -1247,7 +1246,7 @@ LoopFillZerobss:
   ldr r1, =_edata
  8000908:	2000000c 	.word	0x2000000c
   ldr r2, =_sidata
- 800090c:	0800183c 	.word	0x0800183c
+ 800090c:	08001840 	.word	0x08001840
   ldr r2, =_sbss
  8000910:	2000000c 	.word	0x2000000c
   ldr r4, =_ebss
@@ -3570,7 +3569,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  80015f6:	bf00      	nop
  80015f8:	40023c00 	.word	0x40023c00
  80015fc:	40023800 	.word	0x40023800
- 8001600:	0800181c 	.word	0x0800181c
+ 8001600:	08001820 	.word	0x08001820
  8001604:	20000000 	.word	0x20000000
  8001608:	20000004 	.word	0x20000004
 
@@ -3816,10 +3815,10 @@ __weak uint32_t HAL_RCC_GetSysClockFreq(void)
  80017da:	4798      	blx	r3
  80017dc:	3601      	adds	r6, #1
  80017de:	e7f2      	b.n	80017c6 <__libc_init_array+0x1e>
- 80017e0:	08001834 	.word	0x08001834
- 80017e4:	08001834 	.word	0x08001834
- 80017e8:	08001834 	.word	0x08001834
- 80017ec:	08001838 	.word	0x08001838
+ 80017e0:	08001838 	.word	0x08001838
+ 80017e4:	08001838 	.word	0x08001838
+ 80017e8:	08001838 	.word	0x08001838
+ 80017ec:	0800183c 	.word	0x0800183c
 
 080017f0 <_init>:
  80017f0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
